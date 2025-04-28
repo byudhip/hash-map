@@ -163,12 +163,12 @@ class LinkedList {
     if (index > this.SIZE) return `Out of list bounds`;
     if (index === 0) {
       // Insert at the beginning
-      this.prepend(value);
+      this.prepend(key, value);
       return this;
     }
     if (index === this.SIZE) {
       // Insert at the end
-      this.append(value);
+      this.append(key, value);
       return this;
     }
     // Insert in the middle
@@ -194,17 +194,6 @@ class LinkedList {
     if (index === this.SIZE - 1) this.TAIL = prevNode;
     this.SIZE--;
     return this;
-  }
-  updateNode(key, value) {
-    let current = this.HEAD;
-    while (current) {
-      if (current.key === key) {
-        current.value = value;
-        return current;
-      }
-      current = current.next;
-    }
-    return null;
   }
   getKeyCount() {
     let count = 0;
